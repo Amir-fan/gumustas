@@ -554,21 +554,89 @@ function viewBrandModels(brand) {
 
 // View 3D model modal
 function view3DModel(modelId) {
+    // Map car IDs to their 3D model data
     const modelData = {
-        'mercedes-e-class': {
-            name: 'Mercedes E-Class W212',
+        // Mercedes models
+        'mercedes-s-class': {
+            name: 'Mercedes-Benz S-Class',
             src: '3d-models/mercedes_1/scene.gltf',
-            description: 'Lüks sedan segmentinin öncüsü'
+            description: 'Lüks sedan segmentinin zirvesinde yer alan, en son teknoloji ve üstün konforu bir araya getiren prestijli araçtır.'
         },
-        'mercedes-maybach': {
-            name: 'Mercedes-Benz Maybach 2022',
-            src: '3d-models/mercedes-2/scene.gltf',
-            description: 'Ultra lüks segmentin zirvesi'
+        'mercedes-e-class': {
+            name: 'Mercedes-Benz E-Class',
+            src: '3d-models/mercedes_1/scene.gltf',
+            description: 'Lüks sedan segmentinin öncü modellerinden biridir. Gelişmiş teknoloji, üstün konfor ve güvenlik özellikleriyle öne çıkar.'
+        },
+        'mercedes-glc': {
+            name: 'Mercedes-Benz GLC',
+            src: '3d-models/mercedes_1/scene.gltf',
+            description: 'Lüks SUV segmentinde konfor ve performansı mükemmel şekilde harmanlayan bir modeldir.'
+        },
+        'mercedes-amg-gt': {
+            name: 'Mercedes-AMG GT',
+            src: '3d-models/mercedes_1/scene.gltf',
+            description: 'Spor performansın zirvesinde yer alan, motor sporlarından ilham alan tasarımı ve güçlü motoru ile sürüş tutkusunu yaşatan bir modeldir.'
+        },
+        // Audi models
+        'audi-a6-sportback-e-tron': {
+            name: 'Audi A6 Sportback e-tron',
+            src: '3d-models/mercedes_1/scene.gltf', // Using available 3D model
+            description: 'Elektrikli güç ve premium konforu bir arada sunar. Gelişmiş sürüş asistanları ve modern tasarımıyla öne çıkar.'
+        },
+        'audi-e-tron-gt-quattro': {
+            name: 'Audi e-tron GT quattro',
+            src: '3d-models/mercedes_1/scene.gltf', // Using available 3D model
+            description: 'Güçlü elektrikli performansı ve sportif tasarımı ile heyecan verici bir sürüş sunar.'
+        },
+        'audi-q4-e-tron': {
+            name: 'Audi Q4 e-tron',
+            src: '3d-models/mercedes_1/scene.gltf', // Using available 3D model
+            description: 'Kompakt SUV pratikliği ile elektrikli sürüşün sessiz ve verimli dünyasını birleştirir.'
+        },
+        // Jeep models
+        'jeep-grand-cherokee': {
+            name: 'Jeep Grand Cherokee',
+            src: '3d-models/mercedes_1/scene.gltf', // Using available 3D model
+            description: 'Lüks ve arazi yeteneklerini bir arada sunan güçlü bir SUV deneyimi sağlar.'
+        },
+        'jeep-wrangler-unlimited': {
+            name: 'Jeep Wrangler Unlimited',
+            src: '3d-models/mercedes_1/scene.gltf', // Using available 3D model
+            description: 'Arazi macerasının simgesi olan, her türlü koşulda güvenilir performans sunan efsanevi bir modeldir.'
+        },
+        'jeep-renegade': {
+            name: 'Jeep Renegade',
+            src: '3d-models/mercedes_1/scene.gltf', // Using available 3D model
+            description: 'Kompakt SUV segmentinde Jeep DNA\'sını taşıyan, şehir içi kullanımda pratik, arazi koşullarında yetenekli bir modeldir.'
+        },
+        'jeep-gladiator': {
+            name: 'Jeep Gladiator',
+            src: '3d-models/mercedes_1/scene.gltf', // Using available 3D model
+            description: 'Arazi yetenekleri ile pratik pick-up kullanışlılığını birleştirir.'
+        },
+        // Land Rover models
+        'landrover-range-rover-sport': {
+            name: 'Land Rover Range Rover Sport',
+            src: '3d-models/mercedes_1/scene.gltf', // Using available 3D model
+            description: 'Lüks ve performansı mükemmel şekilde harmanlayan, hem şehir hem de zorlu arazi koşullarında üstün sürüş deneyimi sunan premium SUV modelidir.'
+        },
+        'landrover-range-rover-vogue': {
+            name: 'Land Rover Range Rover Vogue',
+            src: '3d-models/mercedes_1/scene.gltf', // Using available 3D model
+            description: 'Ultra lüks SUV segmentinin zirvesinde yer alan, el işçiliği ve en yüksek kalite standartlarıyla üretilen, arazi yeteneklerini lüks konforla birleştiren prestijli modeldir.'
+        },
+        'landrover-defender-110': {
+            name: 'Land Rover Defender 110',
+            src: '3d-models/mercedes_1/scene.gltf', // Using available 3D model
+            description: 'Efsanevi arazi yeteneklerini modern teknoloji ile birleştiren, her türlü koşulda güvenilir performans sunan, dayanıklılığın simgesi olan modeldir.'
         }
     };
     
     const model = modelData[modelId];
-    if (!model) return;
+    if (!model) {
+        console.warn(`3D model not found for: ${modelId}`);
+        return;
+    }
 
     // Ensure only one modal is visible at a time
     const existing = document.querySelectorAll('.brand-modal, .models-modal, .car-details-modal, .model-3d-modal');
