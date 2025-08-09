@@ -1,0 +1,48 @@
+{
+  "name": "gumustas-landing",
+  "version": "1.0.0",
+  "description": "Gümüştaş Group - Premium Automotive Landing Page",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx live-server --port=3000 --open=/",
+    "build": "echo 'No build process needed for static site'",
+    "test": "echo 'No tests specified'",
+    "lint": "echo 'No linting configured'",
+    "format": "echo 'No formatting configured'"
+  },
+  "keywords": [
+    "automotive",
+    "luxury-cars",
+    "mercedes",
+    "audi",
+    "jeep",
+    "land-rover",
+    "landing-page",
+    "arabic",
+    "rtl"
+  ],
+  "author": "Gümüştaş Group",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gumustas-group/landing-page.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gumustas-group/landing-page/issues"
+  },
+  "homepage": "https://gumustas-group.com",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "serve": "^14.2.1"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+} 
